@@ -1,5 +1,5 @@
 import { Despesa } from "../../domain/despesa";
 
 export interface ChatRepository {
-    //seu codigo aqui
+    open(transactions: Despesa[], uuid: string, userMessage: string): Promise<any>;
 }
