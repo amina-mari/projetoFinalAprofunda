@@ -12,6 +12,7 @@ export class DespesaController {
 
     create(req: Request, res: Response) {
         const params: Despesa = req.body;
+        console.log(params);
         const despesa = this.createDespesaUseCase.execute(params);
         res.status(201).json(despesa);
     }   
