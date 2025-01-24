@@ -1,9 +1,9 @@
 import express from 'express';
-import cors from 'cors';
 import { configureDependencies } from '../infrastructure/utils/config';
 import { connectDB } from '../infrastructure/database/connection'
 import dotenv from 'dotenv'
 dotenv.config();
+let cors = require('cors')
 
 const app = express();
 connectDB();
@@ -16,7 +16,7 @@ let corsOptions = {
   ]
 }
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 
 const {despesaController, chatController} = configureDependencies();
