@@ -4,14 +4,12 @@ import { connectDB } from '../infrastructure/database/connection'
 import dotenv from 'dotenv'
 dotenv.config();
 let cors = require('cors')
-const bodyParser = require("body-parser")
 
 const app = express();
 connectDB();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 
 const {despesaController, chatController} = configureDependencies();
 
