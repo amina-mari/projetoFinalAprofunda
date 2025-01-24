@@ -4,18 +4,12 @@ import { connectDB } from '../infrastructure/database/connection'
 import dotenv from 'dotenv'
 dotenv.config();
 let cors = require('cors')
+const bodyParser = require("body-parser")
 
 const app = express();
 connectDB();
 
-let corsOptions = {
-  origin: [
-    'https://projeto-final-aprofunda-six.vercel.app/',
-    'https://projeto-final-aprofunda-mariana-aminas-projects.vercel.app/',
-    'https://projeto-final-aprofunda-git-main-mariana-aminas-projects.vercel.app/'
-  ]
-}
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
 
