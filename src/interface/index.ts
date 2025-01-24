@@ -7,7 +7,16 @@ dotenv.config();
 
 const app = express();
 connectDB();
-app.use(cors());
+
+let corsOptions = {
+  origin: [
+    'https://projeto-final-aprofunda-six.vercel.app/',
+    'https://projeto-final-aprofunda-mariana-aminas-projects.vercel.app/',
+    'https://projeto-final-aprofunda-git-main-mariana-aminas-projects.vercel.app/'
+  ]
+}
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const {despesaController, chatController} = configureDependencies();
