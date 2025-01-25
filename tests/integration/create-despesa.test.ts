@@ -1,5 +1,5 @@
 import supertest from 'supertest';
-import app from '../../src/interface';
+import app from '../../src/interface/index';
 import mongoose from 'mongoose';
 import { connectDB } from '../../src/infrastructure/database/connection';
 
@@ -7,11 +7,11 @@ const request = supertest(app);
 
 describe("Create Despesa Integration Test", () => {
 
-    beforeEach(async () => {
+    beforeAll(async () => {
         await mongoose.connect(process.env.MONGODB_URI as string)
     })
 
-    afterEach(async () => {
+    afterAll(async () => {
         await mongoose.connection.dropDatabase();
         await mongoose.connection.close();
     })

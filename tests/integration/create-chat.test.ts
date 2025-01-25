@@ -1,5 +1,5 @@
 import supertest from 'supertest';
-import app from '../../src/interface';
+import app from '../../src/interface/index';
 import mongoose from 'mongoose';
 import { connectDB } from '../../src/infrastructure/database/connection';
 
