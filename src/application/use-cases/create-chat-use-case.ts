@@ -12,7 +12,7 @@ export class CreateChatUseCase {
         const transactions = await this.despesas.findAll();
         
         const despesasByUser = transactions.filter(despesa => despesa.userId === uid);
-        
+
         return await this.chatRepository.open(despesasByUser, uid, userMessage);
     }
 }
