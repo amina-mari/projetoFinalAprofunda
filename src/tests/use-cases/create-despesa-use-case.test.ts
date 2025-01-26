@@ -1,5 +1,5 @@
-import { CreateDespesaUseCase } from "../../src/application/use-cases/create-despesa-use-case";
-import { DespesaRepository } from "../../src/application/repositores/depesa-repository";
+import { CreateDespesaUseCase } from "../../application/use-cases/create-despesa-use-case";
+import { DespesaRepository } from "../../application/repositores/depesa-repository";
 
 const despesaRepositoryMock = {
     save: jest.fn((despesa) => Promise.resolve()),

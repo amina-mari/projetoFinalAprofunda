@@ -1,5 +1,5 @@
 import { beforeEach } from "node:test";
-import { CreateChatUseCase } from "../../src/application/use-cases/create-chat-use-case";
+import { CreateChatUseCase } from "../../application/use-cases/create-chat-use-case";
 
 const despesaRepositoryMock = {
     findAll: jest.fn(() => {

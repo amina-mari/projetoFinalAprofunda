@@ -1,5 +1,5 @@
-import { GetDespesasByUserUseCase } from "../../src/application/use-cases/get-despesas-by-user-use-case";
-import { DespesaRepository } from "../../src/application/repositores/depesa-repository";
+import { GetDespesasByUserUseCase } from "../../application/use-cases/get-despesas-by-user-use-case";
+import { DespesaRepository } from "../../application/repositores/depesa-repository";
 
 const despesaRepositoryMock = {
     findAll: jest.fn(() => {

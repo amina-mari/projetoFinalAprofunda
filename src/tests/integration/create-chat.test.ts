@@ -1,7 +1,7 @@
 import supertest from 'supertest';
-import app from '../../src/interface/index';
+import app from '../../interface';
 import mongoose from 'mongoose';
-import { connectDB } from '../../src/infrastructure/database/connection';
+import { connectDB } from '../../infrastructure/database/connection';
 
 
 const request = supertest(app);
