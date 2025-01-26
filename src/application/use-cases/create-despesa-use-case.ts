@@ -11,6 +11,6 @@ export class CreateDespesaUseCase {
 
         await this.despesaRepository.save(despesa);
         
-        return despesa;
+        return Promise.resolve(despesa);
     }
 }
