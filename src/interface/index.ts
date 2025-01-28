@@ -14,7 +14,7 @@ app.use(cors());
 const { despesaController, chatController } = configureDependencies();
 
 app.post('/despesas', (req, res) => despesaController.create(req, res));
-app.get('/despesas/:userid', (req, res) => despesaController.findAll(req, res));
+app.get('/despesas/:userId', (req, res) => despesaController.findAll(req, res));
 app.post('/chat', (req, res) => chatController.open(req, res));
  
 

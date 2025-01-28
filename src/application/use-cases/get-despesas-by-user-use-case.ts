@@ -4,7 +4,7 @@ import { Despesa } from '../../domain/despesa';
 export class GetDespesasByUserUseCase {
     constructor(private despesaRepository: DespesaRepository){}
 
-    async execute(userId: string): Promise<Despesa[]> {
+    async execute(userId: string): Promise<Array<Despesa>> {
         const allDespesas = await this.despesaRepository.findAll();
         
         const despesasByUser = allDespesas.filter(despesa => despesa.userId === userId);

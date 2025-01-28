@@ -8,12 +8,13 @@ export class RepositoryData implements DespesaRepository {
         await despesaModel.save();
     }
 
-    async findAll(): Promise<Despesa[]> {
+    async findAll(): Promise<Array<Despesa>> {
         const despesas = await DespesaModel.find();
         const translatedDespesas = despesas.map(item => {
             return {
                 id: item._id.toString(),
                 descricao: item.descricao,
+                categoria: item.categoria,
                 valor: item.valor,
                 tipo: item.tipo,
                 data: item.data,
