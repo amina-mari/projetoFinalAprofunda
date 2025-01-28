@@ -8,7 +8,7 @@ interface MyState {
 }
 
 export class RepositoryAI implements ChatRepository {
-    async open(transactions: Despesa[], uuid: string, userMessage: string): Promise<any> {
+    async open(transactions: Despesa[], uid: string, userMessage: string): Promise<any> {
         const session = ai.createSession<MyState>({
             initialState: { transactions: transactions},
         });
@@ -61,8 +61,8 @@ export class RepositoryAI implements ChatRepository {
 
         return {
             sessionId,
-            userId: uuid,
-            messages
+            userId: uid,
+            messages: messages
         }
     }
 }

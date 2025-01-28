@@ -7,10 +7,10 @@ export class ChatController {
     ){}
 
     async open(req: Request, res: Response) {
-        const {uuid, message} = req.body
+        const {uid, message} = req.body
 
         try {
-            const chatSession = await this.createChatUseCase.execute(uuid, message);
+            const chatSession = await this.createChatUseCase.execute(uid, message);
             res.status(201).json(chatSession)
         } catch(error: any) {
             res.status(400).json({error: error.message})
