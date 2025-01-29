@@ -6,6 +6,7 @@
     "@types/node": "^22.10.5",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "genkit": "^0.9.12",
@@ -19,7 +20,7 @@
   "scripts": {
     "start": "ts-node src/interface/index.ts",
     "build": "tsc",
-    "test": "jest --runInBand --detectOpenHandles"
+    "test": "cross-env NODE_ENV=test jest --detectOpenHandles"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

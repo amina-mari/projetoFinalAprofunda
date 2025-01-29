@@ -8,9 +8,9 @@ interface MyState {
 }
 
 export class RepositoryAI implements ChatRepository {
-    async open(transactions: Despesa[], uid: string, userMessage: string): Promise<any> {
+    async open(transactions: Despesa[], uid: string, messageUser: string): Promise<any> {
         const session = ai.createSession<MyState>({
-            initialState: { transactions: transactions},
+            initialState: { transactions: transactions },
         });
 
         const sessionId = uuidv4();
@@ -30,7 +30,7 @@ export class RepositoryAI implements ChatRepository {
             Aqui estão as transações da usuária:
             ${JSON.stringify(transactions, null, 2)}
 
-            Instrução da Usuária: ${userMessage}
+            Instrução da Usuária: ${messageUser}
 
             Diretrizes para resposta:
             1. **Responda de forma concisa:** Evite introduções longas ou explicações desnecessárias. Priorize a informação essencial para responder diretamente à pergunta.
@@ -50,19 +50,22 @@ export class RepositoryAI implements ChatRepository {
             Resposta: "Reduzindo seus gastos em 10%, você economizaria R$ 155,08 por mês, ou aproximadamente R$ 1861,00 por ano."
         `;
 
-
         const chat = session.chat();
 
-        const messages: Array<{content: string, timestamp: string}> = [];
+        const messages: Array<{ content: string, timestamp: string }> = [];
 
         const { text } = await chat.send(prompt);
 
-        messages.push({content: text, timestamp: new Date().toISOString()})
+        messages.push({
+            content: text,
+            timestamp: new Date().toISOString(),
+        });
+    
 
         return {
             sessionId,
             userId: uid,
-            messages: messages
-        }
+            messages: messages,
+        };
     }
 }

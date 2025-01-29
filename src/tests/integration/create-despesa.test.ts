@@ -4,14 +4,13 @@ import mongoose from 'mongoose';
 import { connectDB } from '../../infrastructure/database/connection';
 
 const request = supertest(app);
-
 describe("Create Despesa Integration Test", () => {
 
-    beforeAll(async () => {
+    beforeEach(async () => {
         await mongoose.connect(process.env.MONGODB_URI as string)
     })
 
-    afterAll(async () => {
+    afterEach(async () => {
         await mongoose.connection.dropDatabase();
         await mongoose.connection.close();
     })

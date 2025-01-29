@@ -10,10 +10,10 @@ export class DespesaController {
         private getDespesaByUserUseCase: GetDespesasByUserUseCase
     ) {}
 
-    create(req: Request, res: Response) {
+    async create(req: Request, res: Response) {
         const params: Despesa = req.body;
         console.log(params);
-        const despesa = this.createDespesaUseCase.execute(params);
+        const despesa = await this.createDespesaUseCase.execute(params);
         res.status(201).json(despesa);
     }   
 
