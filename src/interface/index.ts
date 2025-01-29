@@ -2,8 +2,9 @@ import express from 'express';
 import { configureDependencies } from '../infrastructure/utils/config';
 import { connectDB } from '../infrastructure/database/connection'
 import dotenv from 'dotenv'
+import cors from 'cors'
 dotenv.config();
-const cors = require('cors')
+
 
 const app = express();
 connectDB();
